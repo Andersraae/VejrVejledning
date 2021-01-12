@@ -12,3 +12,18 @@ headers = {
 response = requests.request("GET", url, headers=headers, params=querystring)
 
 print(response.text)
+
+
+
+url = "https://find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com/iplocation"
+
+querystring = {"apikey":"873dbe322aea47f89dcf729dcc8f60e8"}
+
+headers = {
+    'x-rapidapi-key': "a6bf1992eamsh73f99bb10e52ff4p1f181djsnb1ae54ef1d78",
+    'x-rapidapi-host': "find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com"
+    }
+
+response = requests.request("GET", url, headers=headers, params=querystring)
+
+print(response.text)
