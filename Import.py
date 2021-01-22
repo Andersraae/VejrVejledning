@@ -5,7 +5,7 @@ def getWeather(lat, lon):
 
     url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
-    querystring = {"q":"London,uk","lat":"{}","lon":"{}","callback":"test","id":"2172797","lang":"en","units":"\"metric\"","mode":"xml, html"}
+    querystring = {"q":"London,uk","lat":"{}","lon":"{}","callback":"test","id":"2172797","lang":"en","units":"\"metric\"","mode":"xml, html".format(lat,lon)}
 
     headers = {
         'x-rapidapi-key': "a6bf1992eamsh73f99bb10e52ff4p1f181djsnb1ae54ef1d78",
@@ -18,6 +18,7 @@ def getWeather(lat, lon):
         responseWeather = json.loads(responseWeather.text)
 
     return responseWeather
+
 
 def getLocation():
 

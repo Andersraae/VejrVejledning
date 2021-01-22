@@ -1,16 +1,16 @@
 import Import as Import
 
-print(Import.getWeather())
 print(Import.getLocation())
 
 def sortInfo():
 
-    weather = Import.getWeather()
     location = Import.getLocation()
-    location = location["longitude"]
+    returnLocation = [location["longitude"], location["latitude"]]
+    accuracyRadius = location["accuracyRadius"]
 
-    print(location)
+    weather = Import.getWeather(returnLocation[0],returnLocation[1])
 
-    return location
+    return returnLocation
 
-sortInfo()
+returnLocation = sortInfo()
+print(returnLocation[0],returnLocation[1])
