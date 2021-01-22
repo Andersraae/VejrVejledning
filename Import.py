@@ -1,17 +1,21 @@
 import requests
+import json
 
 def getWeather(lat, lon):
 
     url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
     querystring = {"q":"London,uk","lat":"{}","lon":"{}","callback":"test","id":"2172797","lang":"en","units":"\"metric\"","mode":"xml, html"}
-#Hvordan bruger man {} til at indsætte værdier?????
+
     headers = {
         'x-rapidapi-key': "a6bf1992eamsh73f99bb10e52ff4p1f181djsnb1ae54ef1d78",
         'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com"
         }
 
     responseWeather = requests.request("GET", url, headers=headers, params=querystring)
+
+    if responseWeather.status_code == 200:
+        responseWeather = json.loads(responseWeather.text)
 
     return responseWeather
 
@@ -27,5 +31,8 @@ def getLocation():
         }
 
     responseLocation = requests.request("GET", url, headers=headers, params=querystring)
+
+    if responseLocation.status_code == 200:
+        responseLocation = json.loads(responseLocation.text)
 
     return responseLocation

@@ -1,15 +1,15 @@
 import Import as Import
 
-print(Import.getWeather().text)
-print(Import.getLocation().text)
+print(Import.getWeather())
+print(Import.getLocation())
 
 def sortInfo():
 
-    weather = Import.getWeather().text
-    location = Import.getLocation().text
-    location = location["longitude","latitude","accuracyRadius"] #Hvorfor virker det her ikke?
+    weather = Import.getWeather()
+    location = Import.getLocation()
+    location = location["longitude"]
 
-
+    print(location)
 
     return location
 
