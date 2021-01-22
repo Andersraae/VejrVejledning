@@ -1,7 +1,5 @@
 import Import as Import
 
-print(Import.getLocation())
-
 def sortInfo():
 
     location = Import.getLocation()
