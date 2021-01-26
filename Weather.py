@@ -3,10 +3,12 @@ import Import as Import
 def sortInfo():
 
     location = Import.getLocation()
-    returnLocation = [location["longitude"], location["latitude"]]
+    print(location)
+    city = location["countryCapital"]
+    returnLocation = [round(location["longitude"],2), round(location["latitude"],2)]
     accuracyRadius = location["accuracyRadius"]
 
-    weather = Import.getWeather(returnLocation[0],returnLocation[1])
+    weather = Import.getWeather(city, returnLocation[0], returnLocation[1])
     print(weather)
 
     return returnLocation
