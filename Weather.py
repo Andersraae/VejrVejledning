@@ -7,6 +7,7 @@ def sortInfo():
     accuracyRadius = location["accuracyRadius"]
 
     weather = Import.getWeather(returnLocation[0],returnLocation[1])
+    print(weather)
 
     return returnLocation
 
