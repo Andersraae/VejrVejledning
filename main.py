@@ -1,23 +1,22 @@
 import kivy
 kivy.require('1.11.1')
 
-
 from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
+from kivy.uix.button import Button
 
-class frontend(GridLayout):
+class mainOverview(BoxLayout):
 
     def __init__(self, **kwargs):
-        super(frontend, self).__init__(**kwargs)
-        self.cols = 1
-        self.add_widget(Label(text = 'SNE'))
-        self.add_widget(Label(text = 'SNE'))
+        BoxLayout(orientation='vertical')
+
+
 
 class vejrVejledning(App):
 
     def build(self):
-        return frontend()
+        return mainOverview()
 
 
 if __name__ == '__main__':
