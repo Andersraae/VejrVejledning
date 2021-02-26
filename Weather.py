@@ -19,28 +19,28 @@ def sortInfo():
 def dangerRating():
 
     dict = sortInfo()
-    if dict["wind"] > 3:
+    if dict["wind"] < 3:
         windDanger = 1
-    elif dict["wind"] > 8:
+    elif dict["wind"] < 8:
         windDanger = 2
-    elif dict["wind"] > 15:
+    elif dict["wind"] < 15:
         windDanger = 3
-    elif dict["wind"] > 20:
-        windDanger = 4
     elif dict["wind"] < 20:
+        windDanger = 4
+    elif dict["wind"] > 20:
         windDanger = 5
     else:
         print("ERROR: windDanger")
 
-    if dict["visibility"] > 500:
+    if dict["visibility"] < 500:
         visibilityDanger = 5
-    elif dict["visibility"] > 2000:
+    elif dict["visibility"] < 2000:
         visibilityDanger = 4
-    elif dict["visibility"] > 5000:
+    elif dict["visibility"] < 5000:
         visibilityDanger = 3
-    elif dict["visibility"] > 10000:
-        visibilityDanger = 2
     elif dict["visibility"] < 10000:
+        visibilityDanger = 2
+    elif dict["visibility"] > 10000:
         visibilityDanger = 1
     else:
         print("ERROR: visibilityDanger")
