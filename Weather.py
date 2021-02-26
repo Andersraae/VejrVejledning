@@ -8,13 +8,15 @@ def sortInfo():
     accuracyRadius = location["accuracyRadius"]
 
     weather = Import.getWeather(city, returnLocation[0], returnLocation[1])
-    temp = weather["main"]["temp"] - 273,15
+    temp = weather["main"]["temp"] - 273.15
     visibility = weather["visibility"]
     wind = weather["wind"]["speed"]
 
     dict = {"city": city, "returnLocation": returnLocation, "accuracyRadius": accuracyRadius, "temp": temp, "visibility": visibility, "wind": wind}
 
     return dict
+
+print(sortInfo())
 
 def dangerRating():
 
@@ -44,5 +46,12 @@ def dangerRating():
         visibilityDanger = 1
     else:
         print("ERROR: visibilityDanger")
+
+    if dict["temp"] < 0:
+        tempDanger = 1
+    elif dict["temp"] > 0:
+        tempDanger = 0
+    else:
+        print("ERROR: tempDanger")
 
     return windDanger, visibilityDanger
