@@ -1,7 +1,7 @@
 import requests
 import json
 
-def getWeather(city, lat, lon):
+def getWeather(lat, lon):
 
     url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
