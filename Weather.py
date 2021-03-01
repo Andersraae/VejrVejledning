@@ -28,7 +28,7 @@ def dangerRating():
         windDanger = 3
     elif dict["wind"] <= 20:
         windDanger = 4
-    elif dict["wind"] >= 20:
+    elif dict["wind"] > 20:
         windDanger = 5
     else:
         print("ERROR: windDanger")
@@ -41,7 +41,7 @@ def dangerRating():
         visibilityDanger = 3
     elif dict["visibility"] <= 10000:
         visibilityDanger = 2
-    elif dict["visibility"] >= 10000:
+    elif dict["visibility"] > 10000:
         visibilityDanger = 1
     else:
         print("ERROR: visibilityDanger")
@@ -54,5 +54,3 @@ def dangerRating():
         print("ERROR: tempDanger")
 
     return windDanger, visibilityDanger, tempDanger
-
-dangerRating()
