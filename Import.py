@@ -6,7 +6,6 @@ def getWeather(lat, lon):
     url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
     querystring = {"lat":"{}".format(lat),"lon":"{}".format(lon),"lang":"en","units":"\"metric\"","mode":""}
-    print(querystring)
 
     headers = {
         'x-rapidapi-key': "a6bf1992eamsh73f99bb10e52ff4p1f181djsnb1ae54ef1d78",

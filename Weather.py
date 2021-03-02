@@ -15,7 +15,6 @@ def sortInfo():
 
     return dict
 
-print(sortInfo())
 
 def dangerRating():
 
