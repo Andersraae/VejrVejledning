@@ -1,23 +1,43 @@
-import kivy
-kivy.require('1.11.1')
+from Weather import dangerRating
 
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.label import Label
-from kivy.uix.button import Button
+from kivy.lang import Builder
+from kivy.core.window import Window
+from kivymd.app import MDApp
+from kivymd.uix.screen import Screen
+from kivymd.uix.label import MDLabel
+from kivymd.uix.list import MDList, OneLineListItem, TwoLineListItem
+from kivymd.uix.list import IconLeftWidget
+from kivy.uix.scrollview import ScrollView
 
-class mainOverview(BoxLayout):
+Window.size = (300,500)
 
-    def __init__(self, **kwargs):
-        BoxLayout(orientation='vertical')
-
-
-
-class vejrVejledning(App):
-
+class mainApp(MDApp):
     def build(self):
-        return mainOverview()
+        self.theme_cls.primary_palette = "Yellow"
+        screen = Screen()
+
+        scroll = ScrollView()
+        list_view = MDList()
+        scroll.add_widget(list_view)
+
+        windItem = TwoLineListItem(text="Vind", secondary_text=str(dangerRating()[0]))
+        windIcon = IconLeftWidget(icon="weather-windy")
+        windItem.add_widget(windIcon)
+
+        visItem = TwoLineListItem(text="Sigtbarhed", secondary_text=str(dangerRating()[1]))
+        visIcon = IconLeftWidget(icon="weather-fog")
+        visItem.add_widget(visIcon)
+
+        tempItem = TwoLineListItem(text="Temperatur", secondary_text=str(dangerRating()[2]))
+        tempIcon = IconLeftWidget(icon="snowflake")
+        tempItem.add_widget(tempIcon)
+
+        list_view.add_widget(windItem)
+        list_view.add_widget(visItem)
+        list_view.add_widget(tempItem)
+
+        screen.add_widget(scroll)
+        return screen
 
 
-if __name__ == '__main__':
-    vejrVejledning().run()
+mainApp().run()
